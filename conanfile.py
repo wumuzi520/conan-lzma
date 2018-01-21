@@ -17,6 +17,10 @@ class LZMAConan(ConanFile):
     default_options = "shared=False"
     root = "xz-" + version
 
+    @property
+    def is_mingw(self):
+        return self.settings.compiler == 'gcc' and self.settings.os == 'Windows'
+
     def configure(self):
         del self.settings.compiler.libcxx
 
