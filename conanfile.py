@@ -17,15 +17,6 @@ class LZMAConan(ConanFile):
     default_options = "shared=False"
     root = "xz-" + version
 
-    @property
-    def is_mingw(self):
-        return self.settings.compiler == 'gcc' and self.settings.os == 'Windows'
-
-    def build_requirements(self):
-        if self.is_mingw:
-            self.build_requires('mingw_installer/1.0@conan/stable')
-            self.build_requires('msys2_installer/latest@bincrafters/stable')
-
     def configure(self):
         del self.settings.compiler.libcxx
 
