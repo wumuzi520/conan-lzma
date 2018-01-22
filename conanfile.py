@@ -66,6 +66,11 @@ class LZMAConan(ConanFile):
                 args.extend(['--enable-static', '--disable-shared'])
             if self.settings.build_type == 'Debug':
                 args.append('--enable-debug')
+            if self.is_mingw:
+                if self.settings.arch == 'x86':
+                    args.append('RCFLAGS=--target=pe-i386')
+                elif self.settings.arch == 'x86_64':
+                    args.append('RCFLAGS=--target=pe-x86-64')
             env_build.configure(args=args)
             env_build.make()
             env_build.make(args=['install'])
