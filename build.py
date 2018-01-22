@@ -13,7 +13,7 @@ def add_build_requires(builds):
         return builds
 
 def add_required_installers(build):
-    installers = ['msys2_installer/latest@bincrafters/stable', 'mingw_installer/1.0@conan/stable']
+    installers = ['mingw_installer/1.0@conan/stable','msys2_installer/latest@bincrafters/stable']
     build.build_requires.update({"*" : installers})
     return build
 
