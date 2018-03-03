@@ -37,7 +37,7 @@ class LZMAConan(ConanFile):
 
     def source(self):
         archive_name = "xz-%s.tar.gz" % self.version
-        source_url = "https://tukaani.org/xz/%s" % archive_name
+        source_url = "https://excellmedia.dl.sourceforge.net/project/lzmautils/%s" % archive_name
         tools.download(source_url, archive_name, verify=True)
         tools.untargz(archive_name)
         os.unlink(archive_name)
