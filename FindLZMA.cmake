@@ -1,5 +1,5 @@
 #
-# Find LZMA
+# Find LIBLZMA
 #
 #  LIBLZMA_INCLUDE_DIR - where to find lzma.h, etc.
 #  LIBLZMA_LIBRARY     - List of libraries when using liblzma.
