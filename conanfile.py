@@ -12,6 +12,7 @@ class LZMAConan(ConanFile):
     url = "https://github.com/bincrafters/conan-lzma"
     license = "Public Domain"
     exports = ["LICENSE.md"]
+    exports_sources = ["FindLZMA.cmake"]
     settings = "os", "arch", "compiler", "build_type"
     options = {"shared": [True, False], "fPIC": [True, False]}
     default_options = "shared=False", "fPIC=True"
@@ -95,6 +96,7 @@ class LZMAConan(ConanFile):
             self.build_configure()
 
     def package(self):
+        self.copy("FindLZMA.cmake", ".", ".")
         self.copy(pattern="COPYING", dst="license", src=self.root)
         if self.settings.compiler == "Visual Studio":
             inc_dir = os.path.join(self.root, 'src', 'liblzma', 'api')
